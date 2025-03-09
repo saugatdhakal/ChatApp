@@ -7,8 +7,8 @@ import SettingPage from "./pages/SettingPage";
 import ProfilePage from "./pages/ProfilePage";
 import { useAuthStore } from '../store/useAuthStore.js';
 import { useEffect } from "react";
-import { LoaderCircle } from 'lucide-react';
-
+import { Loader } from 'lucide-react';
+import {Toaster} from "react-hot-toast";
 
 function App() {
   const {authUser,checkAuth,isCheckingAuth} = useAuthStore();
@@ -19,9 +19,9 @@ function App() {
  
   return (
     <div>
-      {isCheckingAuth && !isCheckingAuth && (
-        <div className="">
-          <LoaderCircle className="animate-spin" />
+      {isCheckingAuth && (
+        <div className="fixed inset-0 flex items-center justify-center gap-1 bg-black/50 backdrop-blur-sm z-50">
+          <Loader className="animate-spin w-8 h-8 text-blue-500" /> Loading ...
         </div>
       )}
       <Navbar />
@@ -32,6 +32,7 @@ function App() {
         <Route path="/setting" element={<SettingPage/>} />
         <Route path="/profile" element={authUser ?<ProfilePage/>: <Navigate to="/login" />} />
       </Routes>
+      <Toaster/>
     </div>
   );
 }
