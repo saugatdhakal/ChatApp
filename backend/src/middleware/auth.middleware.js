@@ -16,11 +16,11 @@ export const protectRoute = async (req,res,next)=>{
     const user = await User.findById(decoded.userId).select("-password");
 
     if(!user){
-        return res.status(404).json({messge:"User not found"});
+        return res.status(404).json({message:"User not found"});
     }
     
     req.user = user;
-    next(); //Call next functinon or Move to another line
+    next(); //Call next function or Move to another line
    }catch(err){
     res.status(500).json({message:"Internal Error"});
    } 
