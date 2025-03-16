@@ -1,0 +1,38 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run Backend",
+            "type": "shell",
+            "command": "npm run dev",
+            "cwd": "${workspaceFolder}/backend",
+            "presentation": {
+                "panel": "new",  
+                "reveal": "always",
+                "clear": false
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Run Frontend",
+            "type": "shell",
+            "command": "npm run dev",
+            "cwd": "${workspaceFolder}/frontend",
+            "presentation": {
+                "panel": "new",  
+                "reveal": "always",
+                "clear": false
+            },
+            "problemMatcher": []
+        }
+    ],
+    "compounds": [
+        {
+            "label": "Run Both",
+            "tasks": [
+                "Run Backend",
+                "Run Frontend"
+            ]
+        }
+    ]
+}
