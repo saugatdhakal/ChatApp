@@ -14,7 +14,7 @@ function App() {
   }, [authUser]);
 
   return (
-    <div data-theme={theme}>
+    <div data-theme={theme} >
       <Navbar />
       <AuthRoutes/>
       <Toaster />
